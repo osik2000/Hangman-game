@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="680.0" minWidth="735.0" prefHeight="680.0" prefWidth="735.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hangman.ProfileController">
+   <children>
+      <VBox alignment="TOP_CENTER" minHeight="680.0" minWidth="735.0" prefHeight="680.0" prefWidth="735.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/hangmanLogoProfile.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="15.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefHeight="262.0" prefWidth="735.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/profileUserAvatar.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="changePasswordButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onChangePasswordButtonClick" prefHeight="26.0" prefWidth="90.0" text="Zmień hasło" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="changeDescriptionButton" mnemonicParsing="false" onAction="#onChangeDescriptionButtonClick" prefHeight="26.0" prefWidth="90.0" text="Zmień opis">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="50.0" top="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="300.0" prefWidth="466.0">
+                     <HBox.margin>
+                        <Insets left="20.0" right="50.0" top="20.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label fx:id="nicknameLabel" prefHeight="40.0" prefWidth="478.0" text="nickname" textFill="#9a0202">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="descriptionLabel" alignment="TOP_LEFT" minHeight="40.0" prefHeight="75.0" prefWidth="466.0" text="description" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Moje osiągnięcia">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </Label>
+                        <HBox prefHeight="19.0" prefWidth="466.0">
+                           <children>
+                              <Label text="GRA ZWYKŁA | Liczba odgadniętych haseł:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="normalPointsLabel" text="Label">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="31.0" prefWidth="466.0">
+                           <children>
+                              <Label text="GRA SZYBKA  | Najlepszy wynik:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="speedrunPointsLabel" text="Label">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="162.0" prefWidth="635.0">
+               <children>
+                  <Label fx:id="changeErrorLabel">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <HBox fx:id="changePasswordBox" alignment="CENTER" prefHeight="55.0" prefWidth="635.0" visible="false">
+                     <children>
+                        <VBox prefHeight="56.0" prefWidth="410.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="636.0">
+                                 <children>
+                                    <Label text="Nowe hasło:" />
+                                    <PasswordField fx:id="newPasswordField" prefHeight="26.0" prefWidth="230.0">
+                                       <HBox.margin>
+                                          <Insets left="56.0" />
+                                       </HBox.margin>
+                                    </PasswordField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="15.0" prefWidth="636.0">
+                                 <children>
+                                    <Label text="Powtórz nowe hasło:" />
+                                    <PasswordField fx:id="newPasswordConfirmField" prefHeight="26.0" prefWidth="230.0">
+                                       <HBox.margin>
+                                          <Insets left="12.0" />
+                                       </HBox.margin>
+                                    </PasswordField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Button fx:id="changePasswordConfirmButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#changePassword" prefHeight="26.0" prefWidth="165.0" text="Zatwierdź i zmień hasło" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="changeDescriptionBox" alignment="CENTER" prefHeight="75.0" prefWidth="635.0" visible="false">
+                     <children>
+                        <VBox prefHeight="60.0" prefWidth="410.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="410.0">
+                                 <children>
+                                    <Label prefHeight="18.0" prefWidth="64.0" text="Nowy opis:" />
+                                    <TextArea fx:id="newDescriptionTextArea" prefHeight="65.0" prefWidth="290.0">
+                                       <HBox.margin>
+                                          <Insets left="61.0" />
+                                       </HBox.margin>
+                                    </TextArea>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Button fx:id="changeDescriptionConfirmButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#changeDescription" prefHeight="26.0" prefWidth="140.0" text="Zatwierdź i zmień opis">
+                           <HBox.margin>
+                              <Insets left="25.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" top="30.0" />
+               </VBox.margin>
+            </VBox>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="54.0" prefWidth="735.0">
+               <children>
+                  <ImageView fx:id="homeImage" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#onHomeImageClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@img/homeButton.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="logoutImage" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#onLogoutImageClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@img/signOutButton.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="exitImage" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#onExitImageClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                     <image>
+                        <Image url="@img/turnOffButton.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets bottom="7.0" right="7.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane minHeight="680.0" minWidth="735.0" prefHeight="680.0" prefWidth="735.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hangman.AdminController">
+   <children>
+      <VBox alignment="TOP_CENTER" minHeight="680.0" minWidth="735.0" prefHeight="680.0" prefWidth="735.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="156.0" prefWidth="735.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/hangmanLogoAdmin.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="15.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" fillWidth="false" prefHeight="424.0" prefWidth="581.0">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="50.0" right="50.0" top="10.0" />
+               </VBox.margin>
+               <children>
+                  <HBox prefHeight="447.0" prefWidth="671.0">
+                     <children>
+                        <AnchorPane prefHeight="420.0" prefWidth="644.0">
+                           <children>
+                              <TableView fx:id="usersTable" prefHeight="360.0" prefWidth="671.0">
+                                 <columns>
+                                    <TableColumn fx:id="loginColumn" prefWidth="108.0" text="Użytkownik">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="login" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="passwordColumn" onEditCommit="#editPassword" prefWidth="109.0" text="Hasło">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="password" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="descriptionColumn" onEditCommit="#editDescription" prefWidth="326.0" text="Opis">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="description" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="normalScoreColumn" minWidth="4.0" prefWidth="61.0" text="Zwykły">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="normalScore" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="speedrunScoreColumn" minWidth="0.0" onEditCommit="#editSpeedrunScore" prefWidth="63.0" text="Szybki">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="speedrunScore" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                 </columns>
+                              </TableView>
+                              <TableView fx:id="phrasesTable" layoutY="1.0" prefHeight="360.0" prefWidth="671.0" visible="false">
+                                 <columns>
+                                    <TableColumn fx:id="idColumn" prefWidth="78.0" text="ID hasła">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="id" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="titleColumn" onEditCommit="#editTitle" prefWidth="335.0" text="Treść">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="title" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="categoryColumn" onEditCommit="#editCategory" prefWidth="236.0" text="Kategoria">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="category" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                 </columns>
+                              </TableView>
+                              <HBox fx:id="addUserHBox" alignment="CENTER" layoutX="-2.0" layoutY="368.0" prefHeight="59.0" prefWidth="671.0" spacing="5.0" visible="false">
+                                 <children>
+                                    <Label text="Login:" />
+                                    <TextField fx:id="newLoginField" />
+                                    <Label text="Hasło:" />
+                                    <TextField fx:id="newPasswordField" />
+                                    <Label text="Opis:" />
+                                    <TextArea fx:id="newDescriptionField" prefHeight="59.0" prefWidth="188.0" />
+                                    <Button fx:id="adminAddUserConfirmButton" mnemonicParsing="false" onAction="#adminAddUser" prefHeight="25.0" prefWidth="48.0" text="Dodaj" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="addPhraseHBox" alignment="CENTER" layoutX="-2.0" layoutY="368.0" prefHeight="59.0" prefWidth="671.0" spacing="5.0" visible="false">
+                                 <children>
+                                    <Label text="Treść hasła" />
+                                    <TextField fx:id="newTitleField">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Label text="Kategoria hasła:" />
+                                    <TextField fx:id="newCategoryField">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button fx:id="adminAddPhraseConfirmButton" mnemonicParsing="false" onAction="#adminAddPhrase" prefHeight="25.0" prefWidth="48.0" text="Dodaj" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="735.0">
+               <children>
+                  <AnchorPane prefHeight="43.0" prefWidth="653.0">
+                     <children>
+                        <ToggleButton fx:id="usersToggleButton" layoutX="200.0" layoutY="2.0" mnemonicParsing="false" onAction="#showUsersTable" prefHeight="25.0" prefWidth="130.0" selected="true" text="Konta użytkowników">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="editType" />
+                           </toggleGroup>
+                        </ToggleButton>
+                        <ToggleButton fx:id="phrasesToggleButton" layoutX="416.0" layoutY="2.0" mnemonicParsing="false" onAction="#showPhrasesTable" prefHeight="25.0" prefWidth="130.0" text="Hasła do gry" toggleGroup="$editType" />
+                        <ImageView fx:id="addRecordImage" fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="-2.0" onMouseClicked="#addRecord" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                           <image>
+                              <Image url="@img/adminAddButton.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="removeRecordImage" fitHeight="32.0" fitWidth="32.0" layoutX="56.0" layoutY="-2.0" onMouseClicked="#removeRecord" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                           <image>
+                              <Image url="@img/adminRemoveButton.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="refreshTablesImage" fitHeight="32.0" fitWidth="32.0" layoutX="98.0" layoutY="-2.0" onMouseClicked="#refreshTables" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                           <image>
+                              <Image url="@img/adminRefreshButton.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <HBox prefHeight="47.0" prefWidth="102.0">
+                     <children>
+                        <ImageView fx:id="logoutImage" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#onLogoutImageClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@img/signOutButton.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="exitImage" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#onExitImageClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                           <image>
+                              <Image url="@img/turnOffButton.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="7.0" right="7.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

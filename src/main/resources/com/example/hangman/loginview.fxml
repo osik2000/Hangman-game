@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="330.0" prefWidth="350.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hangman.LoginController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <ImageView fitHeight="89.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@img/hangmanLogoLogin.png" />
+      </image>
+   </ImageView>
+   <Label fx:id="errorLabel" alignment="CENTER" prefHeight="20.0" prefWidth="299.0" textAlignment="CENTER" textFill="RED">
+      <font>
+         <Font name="System Bold" size="11.0" />
+      </font>
+   </Label>
+   <VBox alignment="CENTER" prefHeight="144.0" prefWidth="310.0">
+      <children>
+         <HBox alignment="CENTER" prefHeight="33.0" prefWidth="192.0">
+            <children>
+               <Label text="Login" />
+               <TextField fx:id="loginField" onAction="#onLoginButtonClick">
+                  <HBox.margin>
+                     <Insets bottom="5.0" left="10.0" />
+                  </HBox.margin>
+               </TextField>
+            </children>
+         </HBox>
+         <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+            <children>
+               <Label text="Hasło" />
+               <PasswordField fx:id="passwordField" onAction="#onLoginButtonClick">
+                  <HBox.margin>
+                     <Insets bottom="5.0" left="10.0" top="5.0" />
+                  </HBox.margin>
+               </PasswordField>
+            </children>
+         </HBox>
+         <HBox fx:id="descriptionBox" alignment="CENTER" prefHeight="75.0" prefWidth="310.0" visible="false">
+            <children>
+               <Label text="Opis" />
+               <TextArea fx:id="descriptionField" prefHeight="58.0" prefWidth="242.0" promptText="Napisz coś o sobie i kliknij &quot;Załóż Konto&quot;">
+                  <HBox.margin>
+                     <Insets bottom="5.0" left="10.0" top="5.0" />
+                  </HBox.margin>
+               </TextArea>
+            </children>
+         </HBox>
+      </children>
+   </VBox>
+   <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+      <children>
+         <Button fx:id="loginButton" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="25.0" prefWidth="100.0" text="Zaloguj">
+            <HBox.margin>
+               <Insets right="5.0" />
+            </HBox.margin>
+         </Button>
+         <Button fx:id="registerButton" mnemonicParsing="false" onAction="#onRegisterButtonClick" prefHeight="25.0" prefWidth="100.0" text="Załóż Konto">
+            <HBox.margin>
+               <Insets left="5.0" />
+            </HBox.margin>
+         </Button>
+      </children>
+   </HBox>
+</VBox>
